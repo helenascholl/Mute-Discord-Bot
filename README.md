@@ -1,6 +1,6 @@
 # Mute-Discord-Bot
 
-Vote to mute members.
+Vote to mute or deafen members.
 
 ## Invite the bot
 
