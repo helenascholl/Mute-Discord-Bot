@@ -122,3 +122,13 @@ function mute(member, timeout) {
 function unmute(member, _) {
     member.voice.setMute(false);
 }
+
+function deafen(member, timeout) {
+    member.voice.setDeaf(true);
+    member.voice.setMute(true);
+
+    setTimeout(() => {
+        member.voice.setDeaf(false);
+        member.voice.setMute(false);
+    }, timeout * 60 * 1000);
+}
