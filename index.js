@@ -51,7 +51,7 @@ client.on('message', message => {
     }
 });
 
-client.login(process.env.DISCORD_TOKEN).catch(console.error);
+client.login(process.env['DISCORD_TOKEN']).catch(console.error);
 
 function help(message) {
     const help = '`!m mute @Member:` Vote to mute a member\n'
