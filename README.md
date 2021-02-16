@@ -1,10 +1,10 @@
-# Your-Bot
+# Mute-Discord-Bot
 
-Some description.
+Vote to mute members.
 
 ## Invite the bot
 
-https://discordapp.com/oauth2/authorize?&client_id=[CLIENT ID]&scope=bot&permissions=[PERMISSIONS]
+https://discordapp.com/oauth2/authorize?&client_id=811198746016612383&scope=bot&permissions=12582912
 
 ## For Developers
 
