@@ -40,6 +40,13 @@ client.on('message', message => {
                 noUserSpecifiedMessage: 'Please specify the user that should be deafened!',
                 notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to deafen!'
             });
+        } else if (command.startsWith('undeafen')) {
+            changeVoiceStatus(message, command, timeout, {
+                function: undeafen,
+                messageContent: 'Should {{member}} get undeafened?',
+                noUserSpecifiedMessage: 'Please specify the user that should be undeafened!',
+                notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to undeafen!'
+            });
         }
     }
 });
