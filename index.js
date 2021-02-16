@@ -33,6 +33,13 @@ client.on('message', message => {
                 noUserSpecifiedMessage: 'Please specify the user that should be unmuted!',
                 notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to unmute!'
             });
+        } else if (command.startsWith('deafen')) {
+            changeVoiceStatus(message, command, timeout, {
+                function: deafen,
+                messageContent: 'Should {{member}} get deafened for {{timeout}} minutes?',
+                noUserSpecifiedMessage: 'Please specify the user that should be deafened!',
+                notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to deafen!'
+            });
         }
     }
 });
