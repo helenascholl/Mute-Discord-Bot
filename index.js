@@ -110,3 +110,11 @@ async function changeVoiceStatus(message, command, timeout, action) {
             .catch(console.error);
     }
 }
+
+function mute(member, timeout) {
+    member.voice.setMute(true);
+
+    setTimeout(() => {
+        member.voice.setMute(false);
+    }, timeout * 60 * 1000);
+}
