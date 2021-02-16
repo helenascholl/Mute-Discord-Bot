@@ -26,6 +26,13 @@ client.on('message', message => {
                 noUserSpecifiedMessage: 'Please specify the user that should be muted!',
                 notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to mute!'
             });
+        } else if (command.startsWith('unmute')) {
+            changeVoiceStatus(message, command, timeout, {
+                function: unmute,
+                messageContent: 'Should {{member}} get unmuted?',
+                noUserSpecifiedMessage: 'Please specify the user that should be unmuted!',
+                notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to unmute!'
+            });
         }
     }
 });
