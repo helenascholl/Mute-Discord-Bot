@@ -13,13 +13,19 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith('!m')) {
+    if (message.content.startsWith('!m ')) {
         const command = message.content.split('!m ')[1];
+        const timeout = parseInt(message.content.split(' ')[3]) || DEFAULT_TIMEOUT;
 
-        switch (command) {
-            case 'help':
-                help(message);
-                break;
+        if (command === 'help') {
+            help(message);
+        } else if (command.startsWith('mute')) {
+            changeVoiceStatus(message, command, timeout, {
+                function: mute,
+                messageContent: 'Should {{member}} get muted for {{timeout}} minutes?',
+                noUserSpecifiedMessage: 'Please specify the user that should be muted!',
+                notInSameChannelMessage: 'You have to be in the same Voice Channel as the member you want to mute!'
+            });
         }
     }
 });
