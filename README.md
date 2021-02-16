@@ -4,7 +4,7 @@ Vote to mute or deafen members.
 
 ## Invite the bot
 
-https://discordapp.com/oauth2/authorize?&client_id=811198746016612383&scope=bot&permissions=12585024
+https://discordapp.com/oauth2/authorize?&client_id=811198746016612383&scope=bot&permissions=12650560
 
 ## For Developers
 
