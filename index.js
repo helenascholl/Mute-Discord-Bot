@@ -118,3 +118,7 @@ function mute(member, timeout) {
         member.voice.setMute(false);
     }, timeout * 60 * 1000);
 }
+
+function unmute(member, _) {
+    member.voice.setMute(false);
+}
