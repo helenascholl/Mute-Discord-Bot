@@ -99,15 +99,22 @@ async function changeVoiceStatus(message, command, timeout, action) {
                         const filter = (reaction, user) => {
                             return (reaction.emoji.name === YES_EMOJI
                                 || reaction.emoji.name === NO_EMOJI)
-                                && member.voice.channel.members.array()
-                                    .filter(member => member.user.id === user.id).length > 0
-                                && user.id !== member.id;
                         }
 
                         sentMessage.awaitReactions(filter, { time: VOTING_TIME * 1000 })
                             .then(collected => {
-                                let votesYes = collected.get(YES_EMOJI) ? collected.get(YES_EMOJI).count - 1 : 0;
-                                let votesNo = collected.get(NO_EMOJI) ? collected.get(NO_EMOJI).count - 1 : 0;
+                                let votesYes = collected.get(YES_EMOJI)
+                                    ? collected.get(YES_EMOJI).users.cache.array()
+                                        .filter(m => member.voice.channel.members.array().map(m => m.id).includes(m.id))
+                                        .filter(m => m.id !== member.id)
+                                        .length
+                                    : 0;
+                                let votesNo = collected.get(NO_EMOJI)
+                                    ? collected.get(NO_EMOJI).users.cache.array()
+                                        .filter(m => member.voice.channel.members.array().map(m => m.id).includes(m.id))
+                                        .filter(m => m.id !== member.id)
+                                        .length
+                                    : 0;
                                 let noOfMembersInChannel = member.voice.channel.members.array().length;
 
                                 if (
