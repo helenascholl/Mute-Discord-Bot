@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Add Dicord token
-        run: |
-          cp template.env .env
-          sed -i 's/Your Token/${{ secrets.DISCORD_TOKEN }}/g' .env
+        run: sed -i 's/Your Token/${{ secrets.DISCORD_TOKEN }}/g' .env
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@v2.1.6
         env:
